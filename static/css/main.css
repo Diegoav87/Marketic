@@ -1,0 +1,34 @@
+.main-nav {
+    background-color: #555b6e;
+}
+
+body {
+    background-color: #bee3db;
+}
+
+.showcase {
+    margin-top: 20px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.showcase-block {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.main-block {
+    background-color: white;
+}
+
+.home-block {
+    padding: 30px;
+    background-color: #555b6e;
+    color: white;
+    margin: 20px;
+    -webkit-box-shadow: 6px 7px 4px -3px rgba(0,0,0,0.82); 
+    box-shadow: 6px 7px 4px -3px rgba(0,0,0,0.82);  
+}
+

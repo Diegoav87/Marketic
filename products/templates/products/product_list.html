@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'products/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="container mt-4">
+        <h1>Products</h1>
+    </div>
+    <div class="card-grid m-5">
+        {% for product in products %}
+        <div class="card p-card">
+            {% if product.img %}
+                <img class="card-img-top" src="{{ product.img.url }}">
+            {% endif %}
+            <div class="card-body">
+                <div class="d-flex">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <span class="price ml-auto">${{product.price}}</span>
+                </div>
+                <p class="card-text">{{product.description}}</p>
+                {% if user == product.user %}
+                    <div class="d-flex">
+                        <a href="{% url 'products:update_product' pk=product.pk %}" class="btn btn-success">Update</a>
+                        <a href="{% url 'products:delete' pk=product.pk %}" class="btn btn-danger ml-2">Delete</a>
+                    </div>
+                {% else %}
+                    <a href="{% url 'products:create-order' pk=product.pk %}" class="btn btn-primary">Buy</a>
+                {% endif %}
+                <p class="card-text" style="color: #bee3db;"><small>by <a href="{% url 'products:user_products' username=product.user.username %}">{{product.user.username}}</a></small></p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

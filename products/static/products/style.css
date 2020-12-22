@@ -1,0 +1,42 @@
+body {
+    background-color: #bee3db;
+    color: white;
+}
+
+.card-grid {
+display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.p-card {
+    background-color: #555b6e;
+}
+
+.price {
+    color: #bee3db;
+}
+
+.form-container {
+    background-color: #555b6e;
+    color: white;
+    box-shadow: 2px 5px 10px grey;
+}
+
+input, textarea {
+     font-size:22px;
+     padding:5px 10px;
+     border:1px solid lightgrey;
+     color: white;
+     background-color: #555b6e;
+     outline: none;
+}
+
+.search-form {
+    background-color: #555b6e;
+    padding: 15px;
+}
+
+select {
+    margin-right: 10px;
+}

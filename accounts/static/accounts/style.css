@@ -1,0 +1,18 @@
+body {
+    background-color: #bee3db;
+}
+
+.form-container {
+    background-color: #555b6e;
+    color: white;
+    box-shadow: 2px 5px 10px grey;
+}
+
+input {
+     font-size:22px;
+     padding:5px 10px;
+     border:1px solid lightgrey;
+     color: white;
+     background-color: #555b6e;
+     outline: none;
+}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'products/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card p-card ml-auto mr-auto mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Cancel Order?</h5>
+            <p class="card-text">If the status of the order is pending you can cancel the order.</p>
+            <form method="POST" action="{% url 'products:delete_order' pk=order.pk %}">
+                {% csrf_token %}
+                <a class="btn btn-secondary" href="{% url 'products:customer_order_list' username=user.username %}">Keep Order</a>
+                <input type="submit" class="btn btn-danger" value="Cancel Order">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

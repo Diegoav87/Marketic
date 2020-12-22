@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'products/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card p-card ml-auto mr-auto mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Delete Product?</h5>
+            <p class="card-text">Deleting a product will permanently delete it from the database.</p>
+            <form method="POST" action="{% url 'products:delete' pk=product.pk %}">
+                {% csrf_token %}
+                <a class="btn btn-secondary" href="{% url 'products:user_products' username=user.username %}">Keep Product</a>
+                <input type="submit" class="btn btn-danger" value="Delete Product">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

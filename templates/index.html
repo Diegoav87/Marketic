@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="showcase">
+    <div class="showcase-block">
+        <h1>Buy the Product You Want</h1>
+        <p>Browse a wide varitey of products with all types of perks you can use</p>
+        <a href="{% url 'products:product_list' %}" class="btn btn-primary">See Products</a>
+    </div>
+    <div>
+        <img src="{% static 'images/shoes.png' %}">
+    </div>
+</div>
+
+<div class="main-block">
+    <div class="container d-flex justify-content-between pt-5 pb-5">
+        <div class="home-block">
+            <h3>Create Products</h3>
+            <p>Publish your products so that other people can buy them to you.</p>
+            <a href="{% url 'products:create' %}" class="btn btn-primary">Create</a>
+        </div>
+        <div class="home-block">
+            <h3>Purchases</h3>
+            <p>See the status of all your purchases and make or cancel new orders.</p>
+            {% if user.is_authenticated %}
+                <a class="btn btn-primary" href="{% url 'products:customer_order_list' user.username %}">Purchases</a>
+            {% else %}
+                <a class="btn btn-primary" href="{% url 'accounts:login' %}">Purchases</a>
+            {% endif %}
+        </div>
+        <div class="home-block">
+            <h3>Sells</h3>
+            <p>See the status of all your sells and change it when you need to.</p>
+            {% if user.is_authenticated %}
+                <a class="btn btn-primary" href="{% url 'products:provider_order_list' user.username %}">Sells</a>
+            {% else %}
+                <a class="btn btn-primary" href="{% url 'accounts:login' %}">Sells</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
